@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "722949622156",
+    "project_id": "food-blog-be262",
+    "storage_bucket": "food-blog-be262.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722949622156:android:a1779825e4a38f3c9feea9",
+        "android_client_info": {
+          "package_name": "com.example.blog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722949622156-689t2eqlkm0a9t2p7urc6mnvlprasmct.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeoRF9hFn8DFI3itLZD2ydo9m3i22uzyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722949622156-689t2eqlkm0a9t2p7urc6mnvlprasmct.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "722949622156-2pnl5gkcvc5hpba6gema8rrmhnf6feeq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.blog.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722949622156:android:35fcfa418f9ffff29feea9",
+        "android_client_info": {
+          "package_name": "com.example.blog_web"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722949622156-689t2eqlkm0a9t2p7urc6mnvlprasmct.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeoRF9hFn8DFI3itLZD2ydo9m3i22uzyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722949622156-689t2eqlkm0a9t2p7urc6mnvlprasmct.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "722949622156-2pnl5gkcvc5hpba6gema8rrmhnf6feeq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.blog.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
