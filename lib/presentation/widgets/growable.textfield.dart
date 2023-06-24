@@ -26,15 +26,6 @@ class _GrowableTextFieldState extends State<GrowableTextField> {
     super.initState();
   }
 
-  // @override
-  // void dispose() {
-  //   for (var controller in widget.controllers) {
-  //     controller.dispose();
-  //   }
-
-  //   super.dispose();
-  // }
-
   void _addTextField() {
     setState(() {
       // Add a new controller when a new TextField is added
@@ -90,6 +81,7 @@ class _GrowableTextFieldState extends State<GrowableTextField> {
                     controller: widget.controllers[index],
                     decoration: InputDecoration(
                       labelText: '${widget.hint} ${index + 1}',
+                      focusedBorder: const OutlineInputBorder(),
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {

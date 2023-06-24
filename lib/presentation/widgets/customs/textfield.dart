@@ -65,6 +65,15 @@ class CustomTextField extends StatelessWidget {
         prefixIcon: prefix,
         counterText: '',
         fillColor: bgColor ?? Colors.grey.shade900,
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.blue),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Theme.of(context).primaryColor),
+        ),
+        errorBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red),
+        ),
         hintStyle: TextStyle(
           color: Colors.grey.shade600,
           fontSize: 12,

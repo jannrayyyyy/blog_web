@@ -7,10 +7,4 @@ part 'cuisine_state.dart';
 class CuisineCubit extends Cubit<CuisineState> {
   final AddCuisine _addCuisine;
   CuisineCubit(this._addCuisine) : super(CuisineInitial());
-
-  // Future<void> addCuisine(CuisineEntity cuisine) async {
-  //   emit(CuisineLoading());
-  //   await _addCuisine(''.XFile(), cuisine)
-  //       .then((value) => emit(CuisineAddedSuccessfully()));
-  // }
 }

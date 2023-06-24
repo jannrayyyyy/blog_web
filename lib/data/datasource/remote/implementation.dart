@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:blog_web/core/utils/classes/creds.dart';
 import 'package:blog_web/data/models/cuisine.model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
@@ -10,6 +12,7 @@ import 'package:image_picker/image_picker.dart';
 import 'abstract.dart';
 
 class RemoteDatasourceImpl implements RemoteDatasource {
+  final auth = FirebaseAuth.instance;
   final db = FirebaseFirestore.instance;
   final storage = FirebaseStorage.instance;
   @override
@@ -50,4 +53,15 @@ class RemoteDatasourceImpl implements RemoteDatasource {
           .putFile(File(file?.path ?? ''));
     }
   }
+
+  @override
+  Future<void> login(DTOsCredential creds) async {
+    await auth.signInWithEmailAndPassword(
+      email: creds.email,
+      password: creds.password,
+    );
+  }
+
+  @override
+  Stream<User?> streamUser() => auth.authStateChanges();
 }

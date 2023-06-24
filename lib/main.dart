@@ -1,4 +1,6 @@
-import 'package:blog_web/presentation/screens/main.screen.dart';
+import 'package:blog_web/presentation/auth/auth.screen.dart';
+import 'package:blog_web/presentation/statemanagement/cubit/auth/authentication/authentication_cubit.dart';
+import 'package:blog_web/presentation/statemanagement/cubit/auth/userchanges/userchange_cubit.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/cuisine/cuisine_cubit.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/image/image_cubit.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/storage/storage_cubit.dart';
@@ -6,7 +8,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import 'dependency.injection.dart';
 import 'firebase_options.dart';
 
@@ -44,8 +45,14 @@ class MyApp extends StatelessWidget {
               BlocProvider(
                 create: (context) => ImageCubit(),
               ),
+              BlocProvider(
+                create: (context) => sl<AuthenticationCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => sl<UserchangeCubit>()..streamUser(),
+              ),
             ],
-            child: const MainScreen(),
+            child: const AuthScreen(),
           ),
         );
       },
