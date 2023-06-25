@@ -1,5 +1,6 @@
 import 'package:blog_web/domain/entities/cuisine.entity.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/storage/storage_cubit.dart';
+import 'package:blog_web/presentation/widgets/customs/new.textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -7,7 +8,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../statemanagement/cubit/image/image_cubit.dart';
 import '../customs/text.dart';
-import '../customs/textfield.dart';
 import '../growable.textfield.dart';
 
 class MobileView extends StatefulWidget {
@@ -68,26 +68,17 @@ class _MobileViewState extends State<MobileView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomTextField(
-                  hint: 'Food Name',
+                SizedBox(height: 2.h),
+                NewTextformfield(
+                  hint: 'Food name',
+                  color: Colors.black,
                   controller: title,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Field should not be empty!';
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(height: 2.h),
-                CustomTextField(
-                  hint: 'Food Description',
+                NewTextformfield(
+                  hint: 'Food description',
+                  color: Colors.black,
                   controller: desc,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Field should not be empty!';
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(height: 2.h),
                 const CustomText('Image'),

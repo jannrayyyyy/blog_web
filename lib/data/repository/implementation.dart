@@ -54,4 +54,19 @@ class RepositoryImpl implements Repository {
 
   @override
   Stream<User?> streamUser() => remote.streamUser();
+
+  @override
+  Stream<List<CuisineEntity>> streamCuisines() {
+    return remote.streamCuisines();
+  }
+
+  @override
+  Future<void> deleteCuisine(String uid) async {
+    await remote.deleteCuisine(uid);
+  }
+
+  @override
+  Future<void> updateCuisine(String uid, CuisineEntity cuisine) async {
+    await remote.updateCuisine(uid, CuisineModel.toEntity(cuisine));
+  }
 }

@@ -15,4 +15,7 @@ abstract class Repository {
   Future<String> getDownloadUrl(String label, String path);
   Future<Either<Failure, void>> login(DTOsCredential creds);
   Stream<User?> streamUser();
+  Stream<List<CuisineEntity>> streamCuisines();
+  Future<void> deleteCuisine(String uid);
+  Future<void> updateCuisine(String uid, CuisineEntity cuisine);
 }

@@ -2,6 +2,7 @@ import 'package:blog_web/presentation/auth/auth.screen.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/auth/authentication/authentication_cubit.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/auth/userchanges/userchange_cubit.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/cuisine/cuisine_cubit.dart';
+import 'package:blog_web/presentation/statemanagement/cubit/cuisine/stream_cuisine/stream_cuisines_cubit.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/image/image_cubit.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/storage/storage_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -38,6 +39,9 @@ class MyApp extends StatelessWidget {
             providers: [
               BlocProvider(
                 create: (context) => sl<CuisineCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => sl<StreamCuisinesCubit>(),
               ),
               BlocProvider(
                 create: (context) => sl<StorageCubit>(),

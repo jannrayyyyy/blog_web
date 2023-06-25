@@ -15,14 +15,30 @@ class RemoteDatasourceImpl implements RemoteDatasource {
   final auth = FirebaseAuth.instance;
   final db = FirebaseFirestore.instance;
   final storage = FirebaseStorage.instance;
+
+  final itemsCollection = FirebaseFirestore.instance.collection('cuisines');
+
   @override
   Future<void> addCuisine(CuisineModel cuisine, String imageUrl) async {
     final docRef = db.collection('cuisines').doc();
     cuisine.uid = docRef.id;
     cuisine.image = imageUrl;
-    await docRef
-        .set(cuisine.toMap())
-        .then((value) => print("Item added successfully"));
+
+    Future<bool> isDuplicateItem(String title) async {
+      final snapshot = await itemsCollection
+          .where('title', isEqualTo: title.toLowerCase())
+          .get();
+      return snapshot.docs.isNotEmpty;
+    }
+
+    final isDuplicate = await isDuplicateItem(cuisine.title.toLowerCase());
+    if (isDuplicate) {
+      print('item alreadt exist!');
+    } else {
+      await docRef
+          .set(cuisine.toMap())
+          .then((value) => print('Item added successfully!'));
+    }
   }
 
   @override
@@ -64,4 +80,20 @@ class RemoteDatasourceImpl implements RemoteDatasource {
 
   @override
   Stream<User?> streamUser() => auth.authStateChanges();
+
+  @override
+  Stream<List<CuisineModel>> streamCuisines() {
+    return db.collection('cuisines').snapshots().map((event) =>
+        event.docs.map((e) => CuisineModel.fromJson(e.data())).toList());
+  }
+
+  @override
+  Future<void> deleteCuisine(String uid) async {
+    await db.collection('cuisines').doc(uid).delete();
+  }
+
+  @override
+  Future<void> updateCuisine(String uid, CuisineModel cuisine) async {
+    await db.collection('cuisines').doc(uid).update(cuisine.toMap());
+  }
 }

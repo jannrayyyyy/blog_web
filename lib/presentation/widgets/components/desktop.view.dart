@@ -1,3 +1,4 @@
+import 'package:blog_web/presentation/widgets/customs/new.textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -7,7 +8,6 @@ import '../../../domain/entities/cuisine.entity.dart';
 import '../../statemanagement/cubit/image/image_cubit.dart';
 import '../../statemanagement/cubit/storage/storage_cubit.dart';
 import '../customs/text.dart';
-import '../customs/textfield.dart';
 import '../growable.textfield.dart';
 
 class DesktopView extends StatefulWidget {
@@ -73,26 +73,17 @@ class _DesktopViewState extends State<DesktopView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CustomTextField(
-                        hint: 'Food Name',
+                      SizedBox(height: 2.h),
+                      NewTextformfield(
+                        hint: 'Food name',
                         controller: title,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Field should not be empty!';
-                          }
-                          return null;
-                        },
+                        color: Colors.black,
                       ),
                       SizedBox(height: 2.h),
-                      CustomTextField(
-                        hint: 'Food Description',
+                      NewTextformfield(
+                        hint: 'Food description',
                         controller: desc,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Field should not be empty!';
-                          }
-                          return null;
-                        },
+                        color: Colors.black,
                       ),
                       SizedBox(height: 2.h),
                       const CustomText('Image'),

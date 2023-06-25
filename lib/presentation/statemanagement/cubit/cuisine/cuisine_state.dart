@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'cuisine_cubit.dart';
 
 abstract class CuisineState extends Equatable {
@@ -15,4 +16,10 @@ class CuisineLoaded extends CuisineState {}
 
 class CuisineEmpty extends CuisineState {}
 
-class CuisineAddedSuccessfully extends CuisineState {}
+class CuisineDeleting extends CuisineState {}
+
+class CuisineDeletedSuccessfully extends CuisineState {}
+
+class CuisineUpdating extends CuisineState {}
+
+class CuisineUpdatedSuccessfully extends CuisineState {}

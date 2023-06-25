@@ -13,4 +13,7 @@ abstract class RemoteDatasource {
   Future<String> getDownloadUrl(String label, String path);
   Future<void> login(DTOsCredential creds);
   Stream<User?> streamUser();
+  Stream<List<CuisineModel>> streamCuisines();
+  Future<void> deleteCuisine(String uid);
+  Future<void> updateCuisine(String uid, CuisineModel cuisine);
 }

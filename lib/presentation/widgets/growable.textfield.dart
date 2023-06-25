@@ -2,17 +2,20 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'customs/new.textformfield.dart';
 import 'customs/text.dart';
 
 class GrowableTextField extends StatefulWidget {
   final List<TextEditingController> controllers;
   final String label;
   final String hint;
+  final int? maxLines;
   const GrowableTextField({
     Key? key,
     required this.controllers,
     required this.label,
     required this.hint,
+    this.maxLines,
   }) : super(key: key);
 
   @override
@@ -20,12 +23,6 @@ class GrowableTextField extends StatefulWidget {
 }
 
 class _GrowableTextFieldState extends State<GrowableTextField> {
-  @override
-  void initState() {
-    widget.controllers.add(TextEditingController());
-    super.initState();
-  }
-
   void _addTextField() {
     setState(() {
       // Add a new controller when a new TextField is added
@@ -55,7 +52,7 @@ class _GrowableTextFieldState extends State<GrowableTextField> {
           Row(
             children: [
               CustomText(widget.label),
-              SizedBox(width: 2.w),
+              SizedBox(width: 1.w),
               IconButton(
                 onPressed: _addTextField,
                 icon: const Icon(Icons.add),
@@ -76,26 +73,20 @@ class _GrowableTextFieldState extends State<GrowableTextField> {
             child: ListView.builder(
               itemCount: widget.controllers.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: TextFormField(
+                return Padding(
+                  padding: EdgeInsets.symmetric(vertical: 1.h),
+                  child: NewTextformfield(
+                    hint: widget.hint,
                     controller: widget.controllers[index],
-                    decoration: InputDecoration(
-                      labelText: '${widget.hint} ${index + 1}',
-                      focusedBorder: const OutlineInputBorder(),
+                    color: Colors.black,
+                    maxLines: widget.maxLines,
+                    suffix: IconButton(
+                      icon: const Icon(
+                        Icons.delete,
+                        color: Colors.red,
+                      ),
+                      onPressed: () => _removeTextField(index),
                     ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Field should not be empty!';
-                      }
-                      return null;
-                    },
-                  ),
-                  trailing: IconButton(
-                    icon: const Icon(
-                      Icons.delete,
-                      color: Colors.red,
-                    ),
-                    onPressed: () => _removeTextField(index),
                   ),
                 );
               },

@@ -13,5 +13,5 @@ class UserEntity extends Equatable {
     required this.createdAt,
   });
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [];
 }

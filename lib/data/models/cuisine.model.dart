@@ -13,6 +13,19 @@ class CuisineModel extends CuisineEntity {
     required super.notes,
   });
 
+  factory CuisineModel.fromJson(Map<String, dynamic> json) {
+    return CuisineModel(
+      uid: json['uid'],
+      image: json['image'],
+      title: json['title'],
+      desc: json['desc'],
+      isFavorite: json['isFavorite'],
+      procedures: json['procedures'],
+      ingredients: json['ingredients'],
+      notes: json['notes'],
+    );
+  }
+
   factory CuisineModel.toEntity(CuisineEntity cuisine) {
     return CuisineModel(
       uid: cuisine.uid,

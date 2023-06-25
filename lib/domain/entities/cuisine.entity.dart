@@ -7,7 +7,6 @@ class CuisineEntity extends Equatable {
   String? image;
   final String title;
   final String desc;
-
   final bool isFavorite;
   final List procedures;
   final List ingredients;
