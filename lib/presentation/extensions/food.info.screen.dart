@@ -186,7 +186,6 @@ class _FoodInfoScreenState extends State<FoodInfoScreen> {
                 hint: 'Food description',
                 controller: desc,
                 color: Colors.black,
-                maxLines: 15,
               ),
               const SizedBox(height: 12),
               GrowableTextField(
