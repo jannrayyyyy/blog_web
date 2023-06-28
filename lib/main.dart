@@ -1,6 +1,7 @@
 import 'package:blog_web/presentation/auth/auth.screen.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/auth/authentication/authentication_cubit.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/auth/userchanges/userchange_cubit.dart';
+import 'package:blog_web/presentation/statemanagement/cubit/common/single.state.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/cuisine/cuisine_cubit.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/cuisine/stream_cuisine/stream_cuisines_cubit.dart';
 import 'package:blog_web/presentation/statemanagement/cubit/image/image_cubit.dart';
@@ -54,6 +55,9 @@ class MyApp extends StatelessWidget {
               ),
               BlocProvider(
                 create: (context) => sl<UserchangeCubit>()..streamUser(),
+              ),
+              BlocProvider(
+                create: (context) => ObscureCubit(),
               ),
             ],
             child: const AuthScreen(),

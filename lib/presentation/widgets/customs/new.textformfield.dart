@@ -7,6 +7,7 @@ class NewTextformfield extends StatelessWidget {
   final Color? color;
   final Widget? suffix;
   final int? maxLines;
+  final bool? isObscure;
   const NewTextformfield({
     Key? key,
     this.controller,
@@ -14,6 +15,7 @@ class NewTextformfield extends StatelessWidget {
     this.color,
     this.suffix,
     this.maxLines,
+    this.isObscure,
   }) : super(key: key);
 
   @override
@@ -22,6 +24,7 @@ class NewTextformfield extends StatelessWidget {
       style: TextStyle(color: color ?? Colors.white),
       controller: controller,
       maxLines: maxLines,
+      obscureText: isObscure ?? false,
       decoration: InputDecoration(
         labelText: hint,
         suffixIcon: suffix,

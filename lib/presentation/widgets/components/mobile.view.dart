@@ -222,7 +222,6 @@ class _MobileViewState extends State<MobileView> {
                       Navigator.pop(context);
                       Navigator.pop(context);
                       context.read<ImageCubit>().clearImage();
-
                       clearAll();
                     }
                   },
